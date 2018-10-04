@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801413760396236}
   - component: {fileID: 114791256704172090}
+  - component: {fileID: 114866126262297742}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -186,8 +187,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510904653581814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
   - {fileID: 4845952204905312}
@@ -649,7 +650,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 1, 0
+  m_text: 0, -1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -717,7 +718,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 4
+    characterCount: 5
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -730,7 +731,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 23251998810727156}
   m_subTextObjects:
@@ -755,6 +756,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 10
+--- !u!114 &114866126262297742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510904653581814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad73ba4a0982dc4d86e373a99ab97fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222804921077000694
 CanvasRenderer:
   m_ObjectHideFlags: 1
