@@ -7,6 +7,9 @@ public class Pathfinder : MonoBehaviour {
     [SerializeField] Waypoint startWayPoint, stopWayPoint;
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
+    Queue<Waypoint> queue = new Queue<Waypoint>();
+    bool isRunning = true;
+    Waypoint searchCenter;
 
     Vector2Int[] directions =
     {
@@ -20,7 +23,8 @@ public class Pathfinder : MonoBehaviour {
 	void Start () {
         LoadBlocks();
         ColorStartAndEnd();
-        ExploreNeighbors();
+        Pathfind();
+        //ExploreNeighbors();
 	}
 
     private void LoadBlocks()
@@ -47,17 +51,57 @@ public class Pathfinder : MonoBehaviour {
 
     private void ExploreNeighbors()
     {
+        if (!isRunning) { return; }
+
         foreach(Vector2Int direction in directions)
         {
-            Vector2Int explorationCoordinates = startWayPoint.GetGridPos() + direction;
+            Vector2Int neighborCoordinates = searchCenter.GetGridPos() + direction;
             try
             {
-                grid[explorationCoordinates].SetTopColor(Color.blue);
+                QueueNewNeighbors(neighborCoordinates);
             }
             catch
             {
                 //foo
             }
+        }
+    }
+
+    private void QueueNewNeighbors(Vector2Int neighborCoordinates)
+    {
+        Waypoint neighor = grid[neighborCoordinates];
+        if (neighor.isExplored || queue.Contains(neighor))
+        {
+            //foo
+        }
+        else
+        {
+            queue.Enqueue(neighor);
+            neighor.exploredFrom = searchCenter;
+        }
+    }
+
+    private void Pathfind()
+    {
+        queue.Enqueue(startWayPoint);
+
+        while(queue.Count > 0 && isRunning)
+        {
+            searchCenter = queue.Dequeue();
+            searchCenter.isExplored = true;
+            HaltIfEndFound();
+            ExploreNeighbors();
+        }
+
+        //print("Finished pathfinding");
+    }
+
+    private void HaltIfEndFound()
+    {
+        if (searchCenter == stopWayPoint)
+        {
+            //print("Searching from end node, stopping.");
+            isRunning = false;
         }
     }
 }
