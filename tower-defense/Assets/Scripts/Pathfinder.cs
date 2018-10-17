@@ -10,6 +10,7 @@ public class Pathfinder : MonoBehaviour {
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true;
     Waypoint searchCenter;
+    private List<Waypoint> path = new List<Waypoint>();
 
     Vector2Int[] directions =
     {
@@ -18,14 +19,6 @@ public class Pathfinder : MonoBehaviour {
         Vector2Int.down,
         Vector2Int.left
     };
-
-	// Use this for initialization
-	void Start () {
-        LoadBlocks();
-        ColorStartAndEnd();
-        Pathfind();
-        //ExploreNeighbors();
-	}
 
     private void LoadBlocks()
     {
@@ -56,13 +49,9 @@ public class Pathfinder : MonoBehaviour {
         foreach(Vector2Int direction in directions)
         {
             Vector2Int neighborCoordinates = searchCenter.GetGridPos() + direction;
-            try
+            if(grid.ContainsKey(neighborCoordinates))
             {
                 QueueNewNeighbors(neighborCoordinates);
-            }
-            catch
-            {
-                //foo
             }
         }
     }
@@ -81,7 +70,7 @@ public class Pathfinder : MonoBehaviour {
         }
     }
 
-    private void Pathfind()
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startWayPoint);
 
@@ -92,16 +81,35 @@ public class Pathfinder : MonoBehaviour {
             HaltIfEndFound();
             ExploreNeighbors();
         }
-
-        //print("Finished pathfinding");
     }
 
     private void HaltIfEndFound()
     {
         if (searchCenter == stopWayPoint)
         {
-            //print("Searching from end node, stopping.");
             isRunning = false;
         }
+    }
+
+    private void CreatePath()
+    {
+        path.Add(stopWayPoint);
+        Waypoint previous = stopWayPoint.exploredFrom;
+        while(previous != startWayPoint)
+        {
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(startWayPoint);
+        path.Reverse();
+    }
+
+    public List<Waypoint> GetPath()
+    {
+        LoadBlocks();
+        ColorStartAndEnd();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 }
