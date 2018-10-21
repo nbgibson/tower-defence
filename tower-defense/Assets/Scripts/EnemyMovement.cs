@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start ()
     {
@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour {
         foreach (Waypoint wayPoint in path)
         {
             transform.position = wayPoint.transform.position;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
     }
 }
