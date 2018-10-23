@@ -23,7 +23,7 @@ public class EnemyDamage : MonoBehaviour {
     void ProcessHit()
     {
         hitPoints = hitPoints - 1;
-        print("Current Hit Points: " + hitPoints);
+        Debug.Log("Current Hit Points: " + hitPoints);
     }
 
     void KillEnemy()

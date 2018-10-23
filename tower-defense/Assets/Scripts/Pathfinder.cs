@@ -20,6 +20,19 @@ public class Pathfinder : MonoBehaviour {
         Vector2Int.left
     };
 
+    public List<Waypoint> GetPath()
+    {
+        if(path.Count == 0)
+        {
+            LoadBlocks();
+            ColorStartAndEnd();
+            BreadthFirstSearch();
+            CreatePath();
+        }
+
+        return path;        
+    }
+
     private void LoadBlocks()
     {
         var waypoints = FindObjectsOfType<Waypoint>();
@@ -103,13 +116,5 @@ public class Pathfinder : MonoBehaviour {
         path.Add(startWayPoint);
         path.Reverse();
     }
-
-    public List<Waypoint> GetPath()
-    {
-        LoadBlocks();
-        ColorStartAndEnd();
-        BreadthFirstSearch();
-        CreatePath();
-        return path;
-    }
+ 
 }
