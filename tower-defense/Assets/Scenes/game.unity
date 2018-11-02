@@ -1598,7 +1598,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 1638057945}
+      objectReference: {fileID: 0}
     - target: {fileID: 1749531932185860, guid: 180329a5cfbdebd40a3afed14ed976bc, type: 2}
       propertyPath: m_Name
       value: Tower (2)
@@ -2980,7 +2980,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 1638057945}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 180329a5cfbdebd40a3afed14ed976bc, type: 2}
   m_IsPrefabAsset: 0
@@ -4840,7 +4840,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 1638057945}
+      objectReference: {fileID: 0}
     - target: {fileID: 1749531932185860, guid: 180329a5cfbdebd40a3afed14ed976bc, type: 2}
       propertyPath: m_Name
       value: Tower (1)
@@ -4985,48 +4985,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98cb469eb9dcb1c4e96536adcc4fbd40, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &1531172160
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1576777400}
-    m_Modifications:
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1c55d59683395a04cbab2c1e6d3fe318, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!114 &1545184210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114866126262297742, guid: 98cb469eb9dcb1c4e96536adcc4fbd40,
@@ -5061,6 +5019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576777400}
+  - component: {fileID: 1576777401}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -5077,11 +5036,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1638057945}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576777401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1576777399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2564027557d8244f8d7d870d965a329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBetweenSpawns: 3
+  enemyPrefab: {fileID: 114648688611267902, guid: 1c55d59683395a04cbab2c1e6d3fe318,
+    type: 2}
 --- !u!1001 &1599221548
 Prefab:
   m_ObjectHideFlags: 0
@@ -5312,11 +5284,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 700ff3467e6f35c4d9307b685e8746d1, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &1638057945 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4073039434275578, guid: 1c55d59683395a04cbab2c1e6d3fe318,
-    type: 2}
-  m_PrefabInternal: {fileID: 1531172160}
 --- !u!4 &1658692638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4801413760396236, guid: 98cb469eb9dcb1c4e96536adcc4fbd40,
