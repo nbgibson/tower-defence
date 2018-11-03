@@ -7,6 +7,7 @@ public class Waypoint : MonoBehaviour {
     //pub ok since this is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
 
     Vector2Int gridPos;
 
@@ -25,15 +26,19 @@ public class Waypoint : MonoBehaviour {
     {
         return gridSize;
     }
-	
-    public void SetTopColor(Color color)
-    {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
-    }
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlaceable)
+            {
+                Debug.Log(gameObject.name + " is a valid placement location");
+            }
+            else
+            {
+                Debug.Log(gameObject.name + " is blocked");
+            }
+        }      
+    }
 }
