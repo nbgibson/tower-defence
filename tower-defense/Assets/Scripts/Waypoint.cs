@@ -33,7 +33,7 @@ public class Waypoint : MonoBehaviour {
         {
             if (isPlaceable)
             {
-                Debug.Log(gameObject.name + " is a valid placement location");
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
             {

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[SelectionBase]
 public class EnemyMovement : MonoBehaviour {
-    
+
 	// Use this for initialization
 	void Start ()
     {
