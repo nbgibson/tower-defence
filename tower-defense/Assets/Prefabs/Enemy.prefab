@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collusionMesh: {fileID: 65598544800772234}
-  hitPoints: 10
+  hitPoints: 2
   hitParticlePrefab: {fileID: 198460256301970850}
   deathParticlePrefab: {fileID: 198828365169688564, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 2}
